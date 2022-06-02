@@ -1,0 +1,29 @@
+<div id="formContainer">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>City: </mat-label>
+        <input matInput placeholder="Ex. London" #city>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="navigateToWeater(city.value)">Find</button>
+</div>
+<mat-card id="wrongCityCard" *ngIf="wrongCityError">Unknown city, try again!</mat-card>
+<mat-card class="mat-elevation-z5" *ngIf="data$ | async as data">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate" class="top-bar">
+    </mat-progress-bar>
+    <mat-card-header>
+        <mat-card-title>{{data.name}}'s weather</mat-card-title>
+        <mat-card-subtitle>Today: {{today | date }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="flex-row">
+            <div class="temp">
+                <span class="big-text">{{data.main.temp | number:'0.0-0'}}°C</span>
+                <span> Feels like </span>
+                <span>{{data.main.feels_like | number: '0.0-0'}}°C</span>
+            </div>
+            <div class="outlook">
+                <img [src]="data.image" class="image" />
+                <span>{{data.weather[0].description | titlecase}}</span>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
