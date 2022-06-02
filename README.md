@@ -27,13 +27,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Project is: _in progress_ 
 
 ## Room for Improvement
-The next step in development is adding the ability to identify users by logging in
-
-Room for improvement:
-- JWT Authentication
-
-To do:
-- adding up the quantities of the same products
+The next step in development is adding some favourite places to watchlist 
+and so on..
 
 ## Contact
 Created by Patryk Król
